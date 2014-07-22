@@ -1,6 +1,7 @@
 include_recipe 'deploy'
 
 node[:deploy].each do |application, deploy|
+  Chef::Log.debug("#{deploy.inspect}")
 
   if deploy[:application_type] != 'other'
     Chef::Log.debug("Skipping deploy::prerender application #{application} as it is not a the Prerender app")
