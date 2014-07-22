@@ -2,7 +2,7 @@ include_recipe 'deploy'
 
 node[:deploy].each do |application, deploy|
 
-  if deploy[:slug_name] != 'prerender'
+  if deploy[:application_type] != 'other'
     Chef::Log.debug("Skipping deploy::prerender application #{application} as it is not a the Prerender app")
     next
   end
