@@ -49,13 +49,8 @@
   
   # Canonical host
   <% if (@params[:rails_env] == "production") %>
-    RewriteCond %{HTTP_HOST}   !^<%= @params[:server_name] %> [NC]
-    RewriteCond %{HTTP_HOST}   !^$
-    RewriteRule ^/(.*)$        http://<%= @params[:server_name] %>/$1 [L,R=302]
-  <% else %>
-    RewriteCond %{HTTP_HOST}   !^<%= @params[:server_name] %> [NC]
-    RewriteCond %{HTTP_HOST}   !^$
-    RewriteRule ^/(.*)$        http://www.<%= @params[:server_name] %>/$1 [L,R=302]
+    RewriteCond %{HTTP_HOST} ^groople.com$
+    RewriteRule (.*) http://www.groople.com$1 [R=301,L] 
   <% end %>
 
   RewriteCond %{REQUEST_URI} !\.(css|gif|jpg|jpeg|png)$
@@ -126,13 +121,8 @@
   
   # Canonical host
   <% if (@params[:rails_env] == "production") %>
-    RewriteCond %{HTTP_HOST}   !^<%= @params[:server_name] %> [NC]
-    RewriteCond %{HTTP_HOST}   !^$
-    RewriteRule ^/(.*)$        http://<%= @params[:server_name] %>/$1 [L,R=302]
-  <% else %>
-    RewriteCond %{HTTP_HOST}   !^<%= @params[:server_name] %> [NC]
-    RewriteCond %{HTTP_HOST}   !^$
-    RewriteRule ^/(.*)$        http://www.<%= @params[:server_name] %>/$1 [L,R=302]
+    RewriteCond %{HTTP_HOST} ^groople.com$
+    RewriteRule (.*) http://www.groople.com$1 [R=301,L] 
   <% end %>
 
   RewriteCond %{REQUEST_URI} !\.(css|gif|jpg|jpeg|png)$
